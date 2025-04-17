@@ -10,22 +10,18 @@
     "source",
     "_config.yml"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fluid-dev/hexo-theme-fluid.git"
-  },
   "keywords": [
     "hexo",
     "theme",
     "fluid",
     "material"
   ],
-  "author": "Fluid-dev (https://github.com/fluid-dev)",
+  "author": "Fluid-dev ()",
   "license": "GPL-V3",
   "bugs": {
-    "url": "https://github.com/fluid-dev/hexo-theme-fluid/issues"
+    "url": ""
   },
-  "homepage": "https://hexo.fluid-dev.com/docs",
+  "homepage": "",
   "engines": {
     "node": ">=8.10.0"
   },
