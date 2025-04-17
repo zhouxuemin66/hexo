@@ -10,8 +10,8 @@ const hexoInstance = new hexo(__dirname, {});
 
 // 下载图片保存到本地
 async function downloadImage(url, filename) {
-  // 使用相对路径指向source目录下的images
-  const imagesDir = path.join('source', 'images');
+  // 修改为指向与scripts同级的source目录下的images
+  const imagesDir = path.join(__dirname, '../source/images');
   if (!fs.existsSync(imagesDir)) {
     fs.mkdirSync(imagesDir, { recursive: true });
   }
@@ -21,7 +21,7 @@ async function downloadImage(url, filename) {
   const response = await axios({ url, method: 'GET', responseType: 'stream' });
   response.data.pipe(writer);
   return new Promise((resolve, reject) => {
-    writer.on('finish', () => resolve(`/images/${filename}`)); // Hexo访问路径保持不变
+    writer.on('finish', () => resolve(`/images/${filename}`));
     writer.on('error', reject);
   });
 }
@@ -66,8 +66,8 @@ categories:
 ${postLines.join('\n')}
   `;
 
-  // 使用相对路径生成文章
-  const postPath = path.join('source', '_posts', `${dateStr}-daily-news.md`);
+  // 修改为指向与scripts同级的source目录下的_posts
+  const postPath = path.join(__dirname, '../source/_posts', `${dateStr}-daily-news.md`);
   fs.writeFileSync(postPath, content, 'utf-8');
   console.log('✅ 成功生成文章:', postPath);
 }
