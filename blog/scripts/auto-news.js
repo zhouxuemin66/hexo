@@ -74,7 +74,8 @@ ${postLines.join('\n')}
 // 自动提交并推送到 GitHub
 function gitPush() {
     try {
-        execSync('git add .', { stdio: 'inherit' });
+        execSync('git add ../source/_posts', { stdio: 'inherit' });
+        execSync('git add ../source/images', { stdio: 'inherit' });
         execSync(`git commit -m "update daily news: ${new Date().toISOString()}"`, { stdio: 'inherit' });
         execSync('git push', { stdio: 'inherit' });
         console.log('✅ 已提交并推送到 GitHub');
@@ -82,6 +83,7 @@ function gitPush() {
         console.error('❌ Git 操作失败：', err.message);
     }
 }
+
 
 // 执行主流程
 async function run() {
